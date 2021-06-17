@@ -22,4 +22,14 @@ If you remove the metamodel import `metamodel "WebApp"` from the Edelta program 
 
 ![image](https://user-images.githubusercontent.com/1202254/122390234-0d391c00-cf72-11eb-9cb8-b96c15f0523c.png)
 
+You can run the Edelta dependency analyzer on `PersonsMM.ecore` that will show its dependencies (none in this case) and the metamodels in the same folder that depends on it (`WebApp` in this case). Right click on `PersonsMM.ecore` and select _Edelta_ => _Analyzer Ecore Files_:
 
+![image](https://user-images.githubusercontent.com/1202254/122390636-83d61980-cf72-11eb-819e-9b1045213b02.png)
+
+A graph model will be created (in the directory `analysis/results`) and the dependencies will be shown in the _Picto_ view: the metamodel on which the analysis has been executed is shown in red:
+
+![image](https://user-images.githubusercontent.com/1202254/122391124-fd6e0780-cf72-11eb-93d9-e39229d6be12.png)
+
+**IMPORTANT:** The _Picto_ view renders HTML contents relying on CSS and JavaScript downloaded from the Internet, so you need an active Internet connection while trying this.
+
+By using the other context menu _Generate Edelta Template File_, an `.edelta` file will be generated in the `src` folder, with all the needed metamodel imports to safely evolve the metamodel. In this example they will be `Persons` and `WebApp` for what we said above. The generated `.edelta` file is only a template: it should be renamed to something else before starting editing it.
