@@ -32,4 +32,20 @@ A graph model will be created (in the directory `analysis/results`) and the depe
 
 **IMPORTANT:** The _Picto_ view renders HTML contents relying on CSS and JavaScript downloaded from the Internet, so you need an active Internet connection while trying this.
 
+In the _Picto_ view, the `Repository` tree can be expanded and another metamodel can be selected to focus on its own dependencies.
+
 By using the other context menu _Generate Edelta Template File_, an `.edelta` file will be generated in the `src` folder, with all the needed metamodel imports to safely evolve the metamodel. In this example they will be `Persons` and `WebApp` for what we said above. The generated `.edelta` file is only a template: it should be renamed to something else before starting editing it.
+
+The second example is similar. We still have `Persons` and `WebApp` but we also have `Subscriptions` which is a weaving model. In particular, it has a reference to `Persons.CreditCard`. If could _inline_ `CreditCard` in `Person`, but this would make `Subscriptions` invalid due to a dangling reference. If `Subscriptions` is imported in the Edelta program, trying to inline `CreditCard` would result in an error:
+
+![image](https://user-images.githubusercontent.com/1202254/122392225-f8f61e80-cf73-11eb-922c-0c709df96254.png)
+
+Thus, Edelta would statically catch possible future problems during the evolution.
+
+Follow the comments to safely inline `CreditCard` after removing the reference from `Subscriptions`.
+
+As above, you can run the dependency analysis on `Persons` (in this second example project):
+
+![image](https://user-images.githubusercontent.com/1202254/122392612-4ecac680-cf74-11eb-94f9-95082300fe47.png)
+
+
