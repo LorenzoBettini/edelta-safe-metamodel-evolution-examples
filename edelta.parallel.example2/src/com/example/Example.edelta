@@ -1,0 +1,18 @@
+import edelta.refactorings.lib.EdeltaRefactorings
+
+package com.example
+
+metamodel "Persons"
+// comment the next import and the refactoring will show an error
+//metamodel "Subscription" // the refactoring won't be applied
+
+use EdeltaRefactorings as refactorings
+
+modifyEcore cleanUp epackage Persons {
+	// if "Subscription" is included, uncomment the following lines
+	// so that inlineClass succeeds
+//	removeElement(
+//		ecoreref(Subscription.Subscription.card))
+	refactorings.
+		inlineClass(ecoreref(CreditCard), "card_")
+}

@@ -1,0 +1,14 @@
+import edelta.refactorings.lib.EdeltaBadSmellsResolver
+
+package com.example
+
+metamodel "Persons"
+// comment the next import and NameElement will be removed
+metamodel "WebApp" // NameElement will not be removed
+
+use EdeltaBadSmellsResolver as resolver
+
+modifyEcore cleanUp epackage Persons {
+	resolver.resolveDeadClassifiers(it)
+	ecoreref(Person.fullName).name = "name"
+}

@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Automatic-Module-Name: edelta.parallel.example1
+Bundle-ManifestVersion: 2
+Bundle-Name: edelta.parallel.example1
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: edelta.parallel.example2;singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: edelta.lib,
+ edelta.refactorings.lib;bundle-version="2.3.2"
+Bundle-RequiredExecutionEnvironment: JavaSE-11
